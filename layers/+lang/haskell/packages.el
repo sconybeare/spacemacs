@@ -27,6 +27,7 @@
     hindent
     hlint-refactor
     intero
+    dante
     ))
 
 (defun haskell/init-cmm-mode ()
@@ -37,7 +38,9 @@
   (spacemacs|add-company-hook haskell-mode)
   (spacemacs|add-company-hook haskell-cabal-mode)
   (when (eq haskell-completion-backend 'intero)
-    (spacemacs|add-company-hook intero-repl-mode)))
+    (spacemacs|add-company-hook intero-repl-mode))
+  (when (eq haskell-completion-backend 'dante)
+    (spacemacs|add-company-hook dante-mode)))
 
 (defun haskell/init-company-cabal ()
   (use-package company-cabal
@@ -61,6 +64,13 @@
 (defun haskell/init-ghc ()
   (use-package ghc
     :defer t))
+
+(defun haskell/init-dante ()
+  (use-package dante
+    :defer t
+    :commands 'dante-mode)
+  :init
+  (add-hook 'haskell-mode-hook 'dante-mode))
 
 (defun haskell/init-intero ()
   (use-package intero

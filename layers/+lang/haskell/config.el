@@ -16,12 +16,13 @@
 (spacemacs|defvar-company-backends haskell-mode)
 (spacemacs|defvar-company-backends haskell-cabal-mode)
 (spacemacs|defvar-company-backends intero-repl-mode)
+(spacemacs|defvar-company-backends dante-mode)
 
 (spacemacs|define-jump-handlers haskell-mode haskell-mode-jump-to-def-or-tag)
 
 (defvar haskell-completion-backend 'ghci
   "Completion backend used by company.
-Available options are `ghci', `intero' and `ghc-mod'. Default is
+Available options are `ghci', `intero', `dante', and `ghc-mod'. Default is
 `ghci'.")
 
 (defvar haskell-enable-hindent-style nil
